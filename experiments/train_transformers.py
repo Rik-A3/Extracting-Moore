@@ -175,7 +175,7 @@ def train_model(train_cfg, language_name, length, N, val_length, val_N, repetiti
         train_cfg.update({"name": unformatted_name.format(r), "repetition": r})
         train_run(train_cfg, train_dataset, val_dataset, rep=r, dev = dev, nb_workers=nb_workers)
 
-WANDB_PROJECT = "Extracting-test"
+WANDB_PROJECT = "extracting-moore"
 BATCH_SIZE = 32
 NB_WORKERS = 0
 REPS = 1
@@ -201,13 +201,13 @@ def run(project=WANDB_PROJECT, batch_size=BATCH_SIZE, nb_workers=NB_WORKERS, rep
         l=L, n=N, val_l=VAL_L, val_N=VAL_N, method=METHOD, val_method=VAL_METHOD, no_dups=NO_DUPS, val_no_dups=VAL_NO_DUPS, dev=False):
 
     languages = [
-        "ones",
+        # "ones",
         "dyck_1",
-        "dyck_2",
-        "grid_1",
-        "parity",
-        "grid_2",
-        "first",
+        # "dyck_2",
+        # "grid_1",
+        # "parity",
+        # "grid_2",
+        # "first",
     ]
     
     run_id = random.randint(0, 10_000_000)  # identifier for this run
@@ -244,7 +244,7 @@ def run(project=WANDB_PROJECT, batch_size=BATCH_SIZE, nb_workers=NB_WORKERS, rep
         }
 
         if method == "character_prediction":
-            train_cfg["d_vocab_out"] = len(target_machine.alphabet)**2
+            train_cfg["d_vocab_out"] = (len(target_machine.alphabet)+1)**2
 
         train_model(train_cfg, language, l, n, val_l, val_N, repetitions=reps, method=method, val_method=val_method, dev=dev, nb_workers=nb_workers, no_duplicates=no_dups, val_no_duplicates=val_no_dups)
 

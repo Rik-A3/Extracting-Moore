@@ -257,6 +257,7 @@ def get_dataset(language_name, length, N, train : bool, test=False, method="rand
         data, labels = to_tensors(data, labels, target_moore.X[target_moore.q0], str(len(target_moore.alphabet)))
 
     elif method == "all":
+        target_moore = get_target_moore(language_name)
         if os.path.exists(SAVE_DIR + data_file_name):
             data = torch.load(SAVE_DIR  + data_file_name)
         else:

@@ -1,4 +1,5 @@
 import os
+import random
 from typing import List
 import numpy as np
 import torch
@@ -100,3 +101,9 @@ def tensor_to_str_list(tensor):
 
 def get_model_paths(project, run_id):
     return list(map(lambda x: f"models/{project}/{x}", filter(lambda name: (str(run_id) in name) and ("pt" in name), os.listdir(f"models/{project}/"))))
+
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)

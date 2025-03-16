@@ -1,0 +1,12 @@
+cuda_device: 0
+project: "extracting_moore"
+nb_workers: 0                 # number of workers for dataloader
+reps: 3                       # number of repetitions
+pos_embeddings: "rotary"      # type of positional embeddings
+l: 32                         # length of sequences
+N: 10000                      # number of sequences
+method: "balanced"            # method of sampling
+no_dups: True                 # no duplicates in dataset
+dev: False                    # run in dev mode
+run_id: Null                  # run id to extract automata; Trains new if None
+seed: 1337

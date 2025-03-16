@@ -18,7 +18,7 @@ import pprint
 import wandb
 
 L_TEST = 32
-N_TEST = 10_000
+N_TEST = 1_000
 METHOD_TEST = "balanced"
 NO_DUPS_TEST = False
 
@@ -54,11 +54,6 @@ def get_starting_examples(language):
         return starting_examples_dict[language]
 
     return []
-
-L_TEST = 100
-N_TEST = 1_000
-METHOD_TEST = "balanced"
-NO_DUPS_TEST = False
 
 def test_run(model: TransformerOracle, test_dataloader, length=L_TEST, wandb_group="test", device="cuda"):
     cfg: HookedTransformerConfig = model.full_cfg

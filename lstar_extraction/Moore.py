@@ -1,5 +1,4 @@
 from copy import deepcopy
-import os
 import pickle
 import graphviz as gv
 from IPython.display import Image
