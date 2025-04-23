@@ -1,0 +1,16 @@
+lstar_extraction/DFA.py
+lstar_extraction/dfa_from_rnn.ipynb
+lstar_extraction/dfa_from_rnn_no_documentation.ipynb
+lstar_extraction/dfa_from_rnn_notebook_for_several_rnns.ipynb
+lstar_extraction/Extraction.py
+lstar_extraction/Teacher.py
+lstar_extraction/WhiteboxRNNCounterexampleGenerator.py
+lstar_extraction/Lstar.py
+lstar_extraction/Helper_Functions.py
+lstar_extraction/LinearTransform.py
+lstar_extraction/RNNClassifier.py
+lstar_extraction/Specific_Language_Generation.py
+lstar_extraction/Tomita_Grammars.py
+lstar_extraction/Training_Functions.py
+lstar_extraction/GRU.py
+lstar_extraction/LSTM.py

@@ -1,5 +1,5 @@
 from lstar_extraction.Quantisations import SVMDecisionTreeQuantisation
-from lstar_extraction.WhiteboxRNNCounterexampleGenerator import WhiteboxRNNCounterexampleGenerator
+from extraction.WhiteboxOracleCounterexampleGenerator import WhiteboxOracleCounterexampleGenerator
 from time import perf_counter
 
 class Teacher:
@@ -8,7 +8,7 @@ class Teacher:
             starting_examples = []
         self.recorded_words = {} # observation table uses this as its T (according to angluin paper terminology)
         self.discretiser = SVMDecisionTreeQuantisation(num_dims_initial_split)
-        self.counterexample_generator = WhiteboxRNNCounterexampleGenerator(network,self.discretiser,starting_examples)
+        self.counterexample_generator = WhiteboxOracleCounterexampleGenerator(network,self.discretiser,starting_examples)
         self.dfas = []
         self.counterexamples_with_times = []
         self.current_ce_count = 0

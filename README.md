@@ -6,7 +6,7 @@ Code for reproduction of the experiments of Extracting Moore Machines from Trans
 These experiments use Python 3.12 To install run:
 
 ```shell
-pip install -r requirements.txt
+bash setup.sh
 ```
 
 # Experiments

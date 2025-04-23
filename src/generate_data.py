@@ -4,7 +4,7 @@ import torch
 
 from src.MooreOracle import TransformerOracle
 from src.TargetMachines import get_target_moore, accepting_states
-from lstar_extraction.Moore import Moore
+from extraction.Moore import Moore
 
 from torch.utils.data import Dataset
 

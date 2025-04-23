@@ -1,21 +1,20 @@
-
 import os
-import pickle
+import wandb
 import torch
 from torch.utils.data import DataLoader
-
-from src.MooreOracle import TransformerOracle
-from src.generate_data import MooreDataset, get_dataset_from_oracle, label_data, get_dataset
-from src.TargetMachines import accepting_states
-from src.utils import AverageCorrectLength, Last10Accuracy, MinimalCorrectLength, SequenceAccuracy, get_model_paths, tensor_to_str_list
-
-from lstar_extraction.Extraction import extract
-from experiments.train_transformers import LightningModule, get_wandb_logger
 from transformer_lens import HookedTransformerConfig
+
 import pytorch_lightning as pl
 
-import pprint
-import wandb
+from src.MooreOracle import TransformerOracle
+from src.generate_data import MooreDataset, label_data, get_dataset
+from src.TargetMachines import accepting_states
+from src.utils import get_model_paths, tensor_to_str_list
+
+from extraction import extract
+from experiments.train_transformers import LightningModule, get_wandb_logger
+
+
 
 L_TEST = 32
 N_TEST = 1_000

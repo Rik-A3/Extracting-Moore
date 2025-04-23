@@ -27,5 +27,5 @@ def main(config_path):
     test_and_extract_run(project=config["project"], run_id=run_id, dev=config["dev"], method=config["method"], no_duplicates=config["no_dups"])
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
-    #main("configs/positive_only.yaml")
+    main("configs/state_prediction.yaml")
+    #main(*sys.argv[1:])

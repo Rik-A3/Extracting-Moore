@@ -201,13 +201,13 @@ def run(project=WANDB_PROJECT, batch_size=BATCH_SIZE, nb_workers=NB_WORKERS, rep
         l=L, n=N, val_l=VAL_L, val_N=VAL_N, method=METHOD, val_method=VAL_METHOD, no_dups=NO_DUPS, val_no_dups=VAL_NO_DUPS, dev=False):
 
     languages = [
-        # "ones",
+        "ones",
         "dyck_1",
-        # "dyck_2",
-        # "grid_1",
-        # "parity",
-        # "grid_2",
-        # "first",
+        "dyck_2",
+        "grid_1",
+        "parity",
+        "grid_2",
+        "first",
     ]
     
     run_id = random.randint(0, 10_000_000)  # identifier for this run
@@ -222,7 +222,7 @@ def run(project=WANDB_PROJECT, batch_size=BATCH_SIZE, nb_workers=NB_WORKERS, rep
             "language_name": language,
             "dataset_name": get_dataset_name(language, l, n, method, no_dups, train=True, data=True),
             "criterion":"BCE", 
-            "epochs":10_000, 
+            "epochs": 10_000,
             "batch_size": batch_size,
             "lr":3e-4,
             "n_layers" : n_layers,

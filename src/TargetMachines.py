@@ -1,4 +1,4 @@
-from lstar_extraction.Moore import Moore
+from extraction.Moore import Moore
 
 unary_alphabet = ["0"]
 bin_alphabet = ["0", "1"]

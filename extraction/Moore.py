@@ -56,7 +56,7 @@ class Moore():
         def label_to_numberlabel(label):
             return str(self.Q.index(label))
 
-        def add_nodes(graph, nodes): #stolen from http://matthiaseisen.com/articles/graphviz/
+        def add_nodes(graph, nodes):
             for n in nodes:
                 if isinstance(n, tuple):
                     graph.node(n[0], **n[1])
@@ -64,7 +64,7 @@ class Moore():
                     graph.node(n)
             return graph
 
-        def add_edges(graph, edges): #stolen from http://matthiaseisen.com/articles/graphviz/
+        def add_edges(graph, edges):
             for e in edges:
                 if isinstance(e[0], tuple):
                     graph.edge(*e[0], **e[1])
@@ -124,12 +124,10 @@ class Moore():
             for state in self.Q:
                 for a in self.alphabet:
                     edge_tuple = (label_to_numberlabel(state),label_to_numberlabel(self.delta[state][a]))
-                    # print(str(edge_tuple)+"    "+a)
                     if not edge_tuple in edges_dict:
-                        edges_dict[edge_tuple] = a #+ "/" + str(self.X[self.delta[state][a]])
+                        edges_dict[edge_tuple] = a
                     else:
-                        edges_dict[edge_tuple] += separator+a #+"/"+str(self.X[self.delta[state][a]])
-                    # print(str(edge_tuple)+"  =   "+str(edges_dict[edge_tuple]))
+                        edges_dict[edge_tuple] += separator+a
             for et in edges_dict:
                 edges_dict[et] = clean_line(edges_dict[et], string.ascii_lowercase)
                 edges_dict[et] = clean_line(edges_dict[et], string.ascii_uppercase)
@@ -139,10 +137,6 @@ class Moore():
 
         edges_dict = group_edges()
         g = add_edges(g,[(e,{'label': edges_dict[e],"color": "black"}) for e in edges_dict])
-        # print('\n'.join([str(((str(state),str(self.delta[state][a])),{'label':a})) for a in self.alphabet for state in
-        #                  self.Q]))
-        # g = add_edges(g,[((label_to_numberlabel(state),label_to_numberlabel(self.delta[state][a])),{'label':a})
-        #                  for a in self.alphabet for state in self.Q])
         if name is None:
             display(Image(filename=g.render(filename='img/automaton')))
         else:
@@ -166,7 +160,7 @@ class Moore():
                     prev_suffixes = next_states.get(next_state)
                     curr_suffixes = curr_states[state]
                     new_suffixes = [suffix + a for suffix in curr_suffixes]
-                    if prev_suffixes is None:       # first time this state is reached at this depth
+                    if prev_suffixes is None:
                         next_states.update({next_state: new_suffixes})
                     else:
                         next_states.update({next_state: prev_suffixes + new_suffixes})
